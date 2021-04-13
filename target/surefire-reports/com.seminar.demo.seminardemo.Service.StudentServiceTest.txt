@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.seminar.demo.seminardemo.Service.StudentServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.916 s - in com.seminar.demo.seminardemo.Service.StudentServiceTest
