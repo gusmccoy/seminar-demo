@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:80", "https://monkfish-app-g4wbo.ondigitalocean.app"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:80", "https://www.app.gusmccoy.dev"})
 @RestController
 public class StudentController {
 
