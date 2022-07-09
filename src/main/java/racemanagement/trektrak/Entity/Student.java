@@ -1,4 +1,4 @@
-package com.seminar.demo.seminardemo.Entity;
+package racemanagement.trektrak.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

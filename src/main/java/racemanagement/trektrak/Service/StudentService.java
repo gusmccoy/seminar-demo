@@ -1,11 +1,11 @@
-package com.seminar.demo.seminardemo.Service;
+package racemanagement.trektrak.Service;
 
 import java.util.List;
 
-import com.seminar.demo.seminardemo.Entity.Student;
-import com.seminar.demo.seminardemo.Repository.StudentRepository;
-
 import org.springframework.stereotype.Service;
+
+import racemanagement.trektrak.Entity.Student;
+import racemanagement.trektrak.Repository.StudentRepository;
 
 @Service
 public class StudentService {

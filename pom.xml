@@ -8,10 +8,10 @@
 		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.seminar.demo</groupId>
-	<artifactId>seminar-demo</artifactId>
+	<groupId>dev.gusmccoy</groupId>
+	<artifactId>ws-racemanagement-trektrak</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>seminar-demo</name>
+	<name>ws-racemanagement-trektrak</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

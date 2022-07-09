@@ -1,12 +1,12 @@
-package com.seminar.demo.seminardemo.Controller;
+package racemanagement.trektrak.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import racemanagement.trektrak.Entity.Student;
+import racemanagement.trektrak.Service.StudentService;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.seminar.demo.seminardemo.Entity.Student;
-import com.seminar.demo.seminardemo.Service.StudentService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;

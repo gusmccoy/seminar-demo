@@ -1,13 +1,13 @@
-package com.seminar.demo.seminardemo;
+package racemanagement.trektrak;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SeminarDemoApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SeminarDemoApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

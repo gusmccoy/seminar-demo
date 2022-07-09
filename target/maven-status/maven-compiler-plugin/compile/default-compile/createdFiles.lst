@@ -1,0 +1,5 @@
+com\seminar\demo\seminardemo\SeminarDemoApplication.class
+com\seminar\demo\seminardemo\Service\StudentService.class
+com\seminar\demo\seminardemo\Controller\StudentController.class
+com\seminar\demo\seminardemo\Repository\StudentRepository.class
+com\seminar\demo\seminardemo\Entity\Student.class
