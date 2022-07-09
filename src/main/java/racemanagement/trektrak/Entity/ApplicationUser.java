@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class User {
+public class ApplicationUser {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;

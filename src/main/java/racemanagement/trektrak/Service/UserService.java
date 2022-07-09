@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import racemanagement.trektrak.Entity.User;
+import racemanagement.trektrak.Entity.ApplicationUser;
 import racemanagement.trektrak.Repository.UserRepository;
 
 @Service
@@ -15,11 +15,16 @@ public class UserService {
         this.userRepository = repository;
     }
 
-    public List<User> getAllUsers() {
-        return (List<User>) userRepository.findAll();
+    public List<ApplicationUser> getAllUsers() {
+        return (List<ApplicationUser>) userRepository.findAll();
     }
 
-    public void saveNewUser(User newUser) {
+    public boolean isUserInvalid(ApplicationUser user) {
+        return userRepository
+        .findAllByUsernameAndPassword(user.getUsername(), user.getPassword()).isEmpty();
+    }
+
+    public void saveNewUser(ApplicationUser newUser) {
         userRepository.save(newUser);
     }
 
@@ -27,7 +32,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public void updateUser(User updatedUser) {
+    public void updateUser(ApplicationUser updatedUser) {
         userRepository.save(updatedUser);
     }
 }

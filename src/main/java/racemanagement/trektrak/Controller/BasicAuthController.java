@@ -2,7 +2,7 @@ package racemanagement.trektrak.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import racemanagement.trektrak.Entity.User;
+import racemanagement.trektrak.Entity.ApplicationUser;
 import racemanagement.trektrak.Service.UserService;
 
 import java.util.ArrayList;
@@ -22,20 +22,27 @@ public class BasicAuthController {
 
     private UserService userService;
 
-    List<User> users = new ArrayList<User>();
+    List<ApplicationUser> users = new ArrayList<ApplicationUser>();
 
     public BasicAuthController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping("/user/all")
-	public List<User> getAllUsers() {
+	public List<ApplicationUser> getAllUsers() {
         System.out.print("Retrieving All Exisiting Users...");
 		return userService.getAllUsers();
 	}
 
+    @PostMapping("/user/authenicate")
+	public boolean validateLogin(@RequestBody ApplicationUser loginAttempt) {
+        System.out.print("Searching for Existing User...");
+        System.out.print(!userService.isUserInvalid(loginAttempt));
+		return !userService.isUserInvalid(loginAttempt);
+	}
+
     @PostMapping("/user/new")
-    public void saveNewUser(@RequestBody User newUser) {
+    public void saveNewUser(@RequestBody ApplicationUser newUser) {
         System.out.println("Updated/New User Recieved: ID = " + newUser.getId());
         System.out.println("Updated/New User Recieved: Username = " + newUser.getUsername());
         System.out.println("Updated/New User Recieved: Password = " + newUser.getPassword());
@@ -50,7 +57,7 @@ public class BasicAuthController {
     }
 
     @PutMapping("/user/update")
-    public void updateUser(@RequestBody User updatedUser) {
+    public void updateUser(@RequestBody ApplicationUser updatedUser) {
         System.out.println("Updated/New User Recieved: ID = " + updatedUser.getId());
         System.out.println("Updated/New User Recieved: Username = " + updatedUser.getUsername());
         System.out.println("Updated/New User Recieved: Password = " + updatedUser.getPassword());
@@ -61,7 +68,7 @@ public class BasicAuthController {
     @GetMapping("/user/populate")
     public String populateDBwithTestData() {
         System.out.println("Populating In-Memory Database with Test Users...");
-        users.add(new User(1, "gusmccoy", "@Badgerrunner1!", "gus@gusmccoy.dev"));
+        users.add(new ApplicationUser(1, "gusmccoy", "@Badgerrunner1!", "gus@gusmccoy.dev"));
 
         users.forEach(User -> userService.saveNewUser(User));
 
