@@ -4,10 +4,11 @@ import org.springframework.stereotype.Repository;
 import racemanagement.trektrak.Entity.ApplicationUser;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
 @Repository
 public interface UserRepository extends CrudRepository<ApplicationUser, Integer> {
-    public List<ApplicationUser> findAllByUsernameAndPassword(String username, String password);
+    public Optional<List<ApplicationUser>> findAllByUsername(String username);
 }

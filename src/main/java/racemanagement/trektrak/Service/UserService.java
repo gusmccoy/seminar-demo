@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import racemanagement.trektrak.Entity.ApplicationUser;
 import racemanagement.trektrak.Repository.UserRepository;
+import racemanagement.trektrak.dto.LoginRequestResponseDTO;
 
 @Service
 public class UserService {
@@ -19,9 +20,14 @@ public class UserService {
         return (List<ApplicationUser>) userRepository.findAll();
     }
 
-    public boolean isUserInvalid(ApplicationUser user) {
-        return userRepository
-        .findAllByUsernameAndPassword(user.getUsername(), user.getPassword()).isEmpty();
+    public LoginRequestResponseDTO isUserInvalid(ApplicationUser requestedUser) {
+        var users = userRepository.findAllByUsername(requestedUser.getUsername());
+
+        if(users.isPresent()) {
+            return new LoginRequestResponseDTO(users.get().get(0).getPassword());
+        } else {
+            return new LoginRequestResponseDTO("");
+        }
     }
 
     public void saveNewUser(ApplicationUser newUser) {

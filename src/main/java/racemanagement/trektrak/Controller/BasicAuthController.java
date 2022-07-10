@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import racemanagement.trektrak.Entity.ApplicationUser;
 import racemanagement.trektrak.Service.UserService;
+import racemanagement.trektrak.dto.LoginRequestResponseDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +36,9 @@ public class BasicAuthController {
 	}
 
     @PostMapping("/user/authenicate")
-	public boolean validateLogin(@RequestBody ApplicationUser loginAttempt) {
+	public LoginRequestResponseDTO validateLogin(@RequestBody ApplicationUser loginAttempt) {
         System.out.print("Searching for Existing User...");
-        System.out.print(!userService.isUserInvalid(loginAttempt));
-		return !userService.isUserInvalid(loginAttempt);
+		return userService.isUserInvalid(loginAttempt);
 	}
 
     @PostMapping("/user/new")
