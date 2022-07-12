@@ -2,10 +2,9 @@ package racemanagement.trektrak.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import racemanagement.trektrak.Entity.Event;
+import racemanagement.trektrak.DTO.EventDTO;
 import racemanagement.trektrak.Service.EventService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,20 +21,17 @@ public class EventController {
 
     private EventService eventService;
 
-    List<Event> events = new ArrayList<Event>();
-
     public EventController(EventService eventService) {
         this.eventService = eventService;
     }
 
     @GetMapping("/event/all")
-	public List<Event> getAllEvents() {
-        System.out.print("Retrieving All Exisiting Events...");
+	public List<EventDTO> getAllEvents() {
 		return eventService.getAllEvents();
 	}
 
     @PostMapping("/event/new")
-    public void saveNewEvent(@RequestBody Event newEvent) {
+    public void saveNewEvent(@RequestBody EventDTO newEvent) {
         eventService.saveNewEvent(newEvent);
     }
 
@@ -46,7 +42,7 @@ public class EventController {
     }
 
     @PutMapping("/event/update")
-    public void updateEvent(@RequestBody Event updatedEvent) {
+    public void updateEvent(@RequestBody EventDTO updatedEvent) {
         eventService.updateEvent(updatedEvent);
     }
 }

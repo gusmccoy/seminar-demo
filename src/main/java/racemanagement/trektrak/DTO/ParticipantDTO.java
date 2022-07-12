@@ -1,31 +1,22 @@
-package racemanagement.trektrak.Entity;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package racemanagement.trektrak.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import racemanagement.trektrak.DTO.ParticipantDTO;
+import racemanagement.trektrak.Entity.Participant;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Participant {
+public class ParticipantDTO {
 
-    public Participant (ParticipantDTO participant) {
+    public ParticipantDTO (Participant participant) {
         bib = participant.getBib();
         firstName = participant.getFirstName();
         lastName = participant.getLastName();
         eventId = participant.getEventId();
     }
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private int id;
     private int bib;
     private int eventId;
     private String firstName;

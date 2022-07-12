@@ -1,9 +1,11 @@
 package racemanagement.trektrak.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import racemanagement.trektrak.DTO.ParticipantDTO;
 import racemanagement.trektrak.Entity.Participant;
 import racemanagement.trektrak.Repository.ParticipantRepository;
 
@@ -15,19 +17,24 @@ public class ParticipantService {
         this.participantRepository = repository;
     }
 
-    public List<Participant> getAllParticipants() {
-        return (List<Participant>) participantRepository.findAll();
+    public List<ParticipantDTO> getAllParticipants() {
+        var participants = (List<Participant>) participantRepository.findAll();
+        var participantDTOs = new ArrayList<ParticipantDTO>();
+        participants.forEach(e -> {
+            participantDTOs.add(new ParticipantDTO(e));
+        });
+        return participantDTOs;
     }
 
-    public void saveNewParticipant(Participant newParticipant) {
-        participantRepository.save(newParticipant);
+    public void saveNewParticipant(ParticipantDTO newParticipant) {
+        participantRepository.save(new Participant(newParticipant));
     }
 
     public void deleteParticipant(int id) {
         participantRepository.deleteById(id);
     }
 
-    public void updateParticipant(Participant updatedParticipant) {
-        participantRepository.save(updatedParticipant);
+    public void updateParticipant(ParticipantDTO updatedParticipant) {
+        participantRepository.save(new Participant(updatedParticipant));
     }
 }

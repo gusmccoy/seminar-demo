@@ -2,10 +2,9 @@ package racemanagement.trektrak.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import racemanagement.trektrak.Entity.Station;
+import racemanagement.trektrak.DTO.StationDTO;
 import racemanagement.trektrak.Service.StationService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,31 +21,27 @@ public class StationController {
 
     private StationService stationService;
 
-    List<Station> stations = new ArrayList<Station>();
-
     public StationController(StationService stationService) {
         this.stationService = stationService;
     }
 
     @GetMapping("/station/all")
-	public List<Station> getAllStations() {
-        System.out.print("Retrieving All Exisiting Stations...");
+	public List<StationDTO> getAllStations() {
 		return stationService.getAllStations();
 	}
 
     @PostMapping("/station/new")
-    public void saveNewStation(@RequestBody Station newStation) {
+    public void saveNewStation(@RequestBody StationDTO newStation) {
         stationService.saveNewStation(newStation);
     }
 
     @DeleteMapping("/station/delete/{id}")
     public void deleteStation(@PathVariable int id) {
-        System.out.println("Deleting Station by ID: ID = " + id);
         stationService.deleteStation(id);
     }
 
     @PutMapping("/station/update")
-    public void updateStation(@RequestBody Station updatedStation) {
+    public void updateStation(@RequestBody StationDTO updatedStation) {
         stationService.updateStation(updatedStation);
     }
 }

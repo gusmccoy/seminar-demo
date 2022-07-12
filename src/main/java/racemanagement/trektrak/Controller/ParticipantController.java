@@ -2,10 +2,9 @@ package racemanagement.trektrak.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import racemanagement.trektrak.Entity.Participant;
+import racemanagement.trektrak.DTO.ParticipantDTO;
 import racemanagement.trektrak.Service.ParticipantService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,31 +21,27 @@ public class ParticipantController {
 
     private ParticipantService participantService;
 
-    List<Participant> participants = new ArrayList<Participant>();
-
     public ParticipantController(ParticipantService participantService) {
         this.participantService = participantService;
     }
 
     @GetMapping("/participant/all")
-	public List<Participant> getAllParticipants() {
-        System.out.print("Retrieving All Exisiting Participants...");
+	public List<ParticipantDTO> getAllParticipants() {
 		return participantService.getAllParticipants();
 	}
 
     @PostMapping("/participant/new")
-    public void saveNewParticipant(@RequestBody Participant newParticipant) {
+    public void saveNewParticipant(@RequestBody ParticipantDTO newParticipant) {
         participantService.saveNewParticipant(newParticipant);
     }
 
     @DeleteMapping("/participant/delete/{id}")
     public void deleteParticipant(@PathVariable int id) {
-        System.out.println("Deleting Participant by ID: ID = " + id);
         participantService.deleteParticipant(id);
     }
 
     @PutMapping("/participant/update")
-    public void updateParticipant(@RequestBody Participant updatedParticipant) {
+    public void updateParticipant(@RequestBody ParticipantDTO updatedParticipant) {
         participantService.updateParticipant(updatedParticipant);
     }
 }
