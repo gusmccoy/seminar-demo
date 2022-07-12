@@ -1,4 +1,4 @@
-package racemanagement.trektrak.dto;
+package racemanagement.trektrak.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

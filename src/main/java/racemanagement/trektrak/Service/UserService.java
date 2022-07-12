@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import racemanagement.trektrak.DTO.LoginRequestResponseDTO;
 import racemanagement.trektrak.Entity.ApplicationUser;
 import racemanagement.trektrak.Repository.UserRepository;
-import racemanagement.trektrak.dto.LoginRequestResponseDTO;
 
 @Service
 public class UserService {

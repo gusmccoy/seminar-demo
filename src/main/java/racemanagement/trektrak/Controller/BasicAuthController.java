@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import racemanagement.trektrak.Entity.ApplicationUser;
 import racemanagement.trektrak.Service.UserService;
-import racemanagement.trektrak.dto.LoginRequestResponseDTO;
+import racemanagement.trektrak.DTO.LoginRequestResponseDTO;
 
 import java.util.ArrayList;
 import java.util.List;
