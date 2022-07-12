@@ -1,9 +1,6 @@
-c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Controller\StudentController.java
 c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Service\UserService.java
-c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Repository\StudentRepository.java
 c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Controller\BasicAuthController.java
-c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Entity\Student.java
 c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Repository\UserRepository.java
+c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\dto\LoginRequestResponseDTO.java
 c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Application.java
 c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Entity\ApplicationUser.java
-c:\Users\Gus McCoy\Documents\GitHub\ws-racemanagement-trektrak\src\main\java\racemanagement\trektrak\Service\StudentService.java
