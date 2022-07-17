@@ -23,10 +23,11 @@ public class UserService {
     public LoginRequestResponseDTO isUserInvalid(ApplicationUser requestedUser) {
         var users = userRepository.findAllByUsername(requestedUser.getUsername());
 
-        if(users.isPresent()) {
-            return new LoginRequestResponseDTO(users.get().get(0).getPassword());
+        if(users.isPresent() && !users.get().isEmpty()) {
+            return new LoginRequestResponseDTO(users.get().get(0).getId(),
+                users.get().get(0).getPassword());
         } else {
-            return new LoginRequestResponseDTO("");
+            return new LoginRequestResponseDTO(-1, "");
         }
     }
 
