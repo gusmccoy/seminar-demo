@@ -30,6 +30,11 @@ public class ParticipantController {
 		return participantService.getAllParticipants();
 	}
 
+    @GetMapping("/participant/all/{eventId}")
+	public List<ParticipantDTO> getAllParticipantsByEvent(@PathVariable int eventId) {
+		return participantService.getAllParticipantsByEventId(eventId);
+	}
+
     @PostMapping("/participant/new")
     public void saveNewParticipant(@RequestBody ParticipantDTO newParticipant) {
         participantService.saveNewParticipant(newParticipant);

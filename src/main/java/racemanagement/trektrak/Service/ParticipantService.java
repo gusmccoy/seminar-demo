@@ -26,6 +26,17 @@ public class ParticipantService {
         return participantDTOs;
     }
 
+    public List<ParticipantDTO> getAllParticipantsByEventId(int eventId) {
+        var participants = participantRepository.findAllByEventId(eventId);
+        var participantDTOs = new ArrayList<ParticipantDTO>();
+        if(participants.isPresent() && !participants.get().isEmpty()) {
+            participants.get().forEach(e -> {
+                participantDTOs.add(new ParticipantDTO(e));
+            });
+        }
+        return participantDTOs;
+    }
+
     public void saveNewParticipant(ParticipantDTO newParticipant) {
         participantRepository.save(new Participant(newParticipant));
     }
