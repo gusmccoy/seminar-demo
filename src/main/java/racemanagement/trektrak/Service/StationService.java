@@ -26,6 +26,17 @@ public class StationService {
         return stationDTOs;
     }
 
+    public List<StationDTO> getAllStationsByEventId(int eventId) {
+        var stations = stationRepository.findAllByEventId(eventId);
+        var stationDTOs = new ArrayList<StationDTO>();
+        if(stations.isPresent() && !stations.get().isEmpty()) {
+            stations.get().forEach(e -> {
+                stationDTOs.add(new StationDTO(e.getId(), e.getEventId(), e.getNumber(), e.getStationName()));
+            });
+        }
+        return stationDTOs;
+    }
+
     public void saveNewStation(StationDTO newStation) {
         var station = Station.builder()
             .eventId(newStation.getEventId())

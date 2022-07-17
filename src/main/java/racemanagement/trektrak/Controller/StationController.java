@@ -30,6 +30,11 @@ public class StationController {
 		return stationService.getAllStations();
 	}
 
+    @GetMapping("/station/all/{eventId}")
+	public List<StationDTO> getAllStationsByEventId(@PathVariable int eventId) {
+		return stationService.getAllStationsByEventId(eventId);
+	}
+
     @PostMapping("/station/new")
     public void saveNewStation(@RequestBody StationDTO newStation) {
         stationService.saveNewStation(newStation);
