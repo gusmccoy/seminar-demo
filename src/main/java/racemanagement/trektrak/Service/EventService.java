@@ -27,6 +27,18 @@ public class EventService {
         return eventDTOs;
     }
 
+    public List<EventDTO> getAllEventsByCreateId(int userId) {
+        var events = eventRepository.findAllByUserId(userId);
+        var eventDTOs = new ArrayList<EventDTO>();
+
+        if(events.isPresent() && !events.get().isEmpty()) {
+            events.get().forEach(e -> {
+                eventDTOs.add(new EventDTO(e.getId(), e.getUserId(), e.getEventName()));
+            });
+        }
+        return eventDTOs;
+    }
+
     public void saveNewEvent(EventDTO newEvent) {
         var event = Event.builder()
             .active(true)

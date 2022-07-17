@@ -30,6 +30,7 @@ public class StationService {
         var station = Station.builder()
             .eventId(newStation.getEventId())
             .stationName(newStation.getName())
+            .number(newStation.getStationNumber())
             .build();
         stationRepository.save(station);
     }

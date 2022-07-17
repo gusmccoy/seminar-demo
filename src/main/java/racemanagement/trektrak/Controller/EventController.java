@@ -30,6 +30,11 @@ public class EventController {
 		return eventService.getAllEvents();
 	}
 
+    @GetMapping("/event/all/{userId}")
+	public List<EventDTO> getAllEventsByUserId(@PathVariable int userId) {
+		return eventService.getAllEventsByCreateId(userId);
+	}
+
     @PostMapping("/event/new")
     public void saveNewEvent(@RequestBody EventDTO newEvent) {
         eventService.saveNewEvent(newEvent);
