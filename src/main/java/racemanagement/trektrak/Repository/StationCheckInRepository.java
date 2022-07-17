@@ -10,5 +10,6 @@ import org.springframework.data.repository.CrudRepository;
 
 @Repository
 public interface StationCheckInRepository extends CrudRepository<StationCheckIn, Integer> {
+    public Optional<List<StationCheckIn>> findAllByEventIdAndStationId(int eventId, int stationId);
     public Optional<List<StationCheckIn>> findAllByEventId(int eventId); 
 }

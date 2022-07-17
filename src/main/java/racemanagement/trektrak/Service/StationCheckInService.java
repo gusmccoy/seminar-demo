@@ -26,6 +26,28 @@ public class StationCheckInService {
         return checkInDTOs;
     }
 
+    public List<CheckInDTO> getAllStationCheckInsByEventId(int eventId) {
+        var checkIns = stationCheckInRepository.findAllByEventId(eventId);
+        var checkInDTOs = new ArrayList<CheckInDTO>();
+        if(checkIns.isPresent() && !checkIns.get().isEmpty()) {
+            checkIns.get().forEach(e -> {
+                checkInDTOs.add(new CheckInDTO(e));
+            });
+        }
+        return checkInDTOs;
+    }
+
+    public List<CheckInDTO> getAllStationCheckInsByEventAndStation(int eventId, int stationId) {
+        var checkIns = stationCheckInRepository.findAllByEventIdAndStationId(eventId, stationId);
+        var checkInDTOs = new ArrayList<CheckInDTO>();
+        if(checkIns.isPresent() && !checkIns.get().isEmpty()) {
+            checkIns.get().forEach(e -> {
+                checkInDTOs.add(new CheckInDTO(e));
+            });
+        }
+        return checkInDTOs;
+    }
+
     public void saveNewStationCheckIn(CheckInDTO newStationCheckIn) {
         stationCheckInRepository.save(new StationCheckIn(newStationCheckIn));
     }

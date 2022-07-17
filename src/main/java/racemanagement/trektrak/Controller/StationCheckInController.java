@@ -30,6 +30,16 @@ public class StationCheckInController {
 		return stationCheckInService.getAllStationCheckIns();
 	}
 
+    @GetMapping("/stationCheckIn/all/{eventId}")
+	public List<CheckInDTO> getAllStationCheckInsByEventId(@PathVariable int eventId) {
+		return stationCheckInService.getAllStationCheckInsByEventId(eventId);
+	}
+
+    @GetMapping("/stationCheckIn/all/{eventId}/{stationId}")
+	public List<CheckInDTO> getAllStationCheckInsByEventAndStation(@PathVariable int eventId, @PathVariable int stationId) {
+		return stationCheckInService.getAllStationCheckInsByEventAndStation(eventId, stationId);
+	}
+
     @PostMapping("/stationCheckIn/new")
     public void saveNewStationCheckIn(@RequestBody CheckInDTO newStationCheckIn) {
         stationCheckInService.saveNewStationCheckIn(newStationCheckIn);
