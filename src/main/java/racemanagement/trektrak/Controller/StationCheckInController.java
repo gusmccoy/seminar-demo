@@ -41,8 +41,8 @@ public class StationCheckInController {
 	}
 
     @PostMapping("/stationCheckIn/new")
-    public void saveNewStationCheckIn(@RequestBody CheckInDTO newStationCheckIn) {
-        stationCheckInService.saveNewStationCheckIn(newStationCheckIn);
+    public int saveNewStationCheckIn(@RequestBody CheckInDTO newStationCheckIn) {
+        return stationCheckInService.saveNewStationCheckIn(newStationCheckIn);
     }
 
     @DeleteMapping("/stationCheckIn/delete/{id}")

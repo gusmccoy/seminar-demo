@@ -37,8 +37,8 @@ public class ParticipantService {
         return participantDTOs;
     }
 
-    public void saveNewParticipant(ParticipantDTO newParticipant) {
-        participantRepository.save(new Participant(newParticipant));
+    public int saveNewParticipant(ParticipantDTO newParticipant) {
+        return participantRepository.save(new Participant(newParticipant)).getId();
     }
 
     public void deleteParticipant(int id) {

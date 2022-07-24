@@ -39,14 +39,14 @@ public class EventService {
         return eventDTOs;
     }
 
-    public void saveNewEvent(EventDTO newEvent) {
+    public int saveNewEvent(EventDTO newEvent) {
         var event = Event.builder()
             .active(true)
             .eventName(newEvent.getName())
             .userId(newEvent.getCreateUserId())
             .createTime(new Date())
             .build();
-        eventRepository.save(event);
+        return eventRepository.save(event).getId();
     }
 
     public void deleteEvent(int id) {

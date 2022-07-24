@@ -18,7 +18,8 @@ public class CheckInDTO {
         bib = checkIn.getBib();
         timestamp = checkIn.getCheckInTime();
     }
-
+    
+    private int id;
     private int eventId;
     private int stationNumber;
     private int bib;

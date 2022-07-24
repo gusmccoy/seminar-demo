@@ -48,8 +48,8 @@ public class StationCheckInService {
         return checkInDTOs;
     }
 
-    public void saveNewStationCheckIn(CheckInDTO newStationCheckIn) {
-        stationCheckInRepository.save(new StationCheckIn(newStationCheckIn));
+    public int saveNewStationCheckIn(CheckInDTO newStationCheckIn) {
+        return stationCheckInRepository.save(new StationCheckIn(newStationCheckIn)).getId();
     }
 
     public void deleteStationCheckIn(int id) {

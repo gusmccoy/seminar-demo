@@ -36,8 +36,8 @@ public class StationController {
 	}
 
     @PostMapping("/station/new")
-    public void saveNewStation(@RequestBody StationDTO newStation) {
-        stationService.saveNewStation(newStation);
+    public int saveNewStation(@RequestBody StationDTO newStation) {
+        return stationService.saveNewStation(newStation);
     }
 
     @DeleteMapping("/station/delete/{id}")

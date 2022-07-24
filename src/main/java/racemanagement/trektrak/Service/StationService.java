@@ -37,13 +37,13 @@ public class StationService {
         return stationDTOs;
     }
 
-    public void saveNewStation(StationDTO newStation) {
+    public int saveNewStation(StationDTO newStation) {
         var station = Station.builder()
             .eventId(newStation.getEventId())
             .stationName(newStation.getName())
             .number(newStation.getStationNumber())
             .build();
-        stationRepository.save(station);
+        return stationRepository.save(station).getId();
     }
 
     public void deleteStation(int id) {

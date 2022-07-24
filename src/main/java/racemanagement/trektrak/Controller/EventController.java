@@ -36,8 +36,8 @@ public class EventController {
 	}
 
     @PostMapping("/event/new")
-    public void saveNewEvent(@RequestBody EventDTO newEvent) {
-        eventService.saveNewEvent(newEvent);
+    public int saveNewEvent(@RequestBody EventDTO newEvent) {
+        return eventService.saveNewEvent(newEvent);
     }
 
     @DeleteMapping("/event/delete/{id}")

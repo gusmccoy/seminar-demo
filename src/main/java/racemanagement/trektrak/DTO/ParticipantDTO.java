@@ -17,6 +17,7 @@ public class ParticipantDTO {
         eventId = participant.getEventId();
     }
 
+    private int id;
     private int bib;
     private int eventId;
     private String firstName;

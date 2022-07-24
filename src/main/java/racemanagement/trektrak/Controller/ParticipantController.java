@@ -36,8 +36,8 @@ public class ParticipantController {
 	}
 
     @PostMapping("/participant/new")
-    public void saveNewParticipant(@RequestBody ParticipantDTO newParticipant) {
-        participantService.saveNewParticipant(newParticipant);
+    public int saveNewParticipant(@RequestBody ParticipantDTO newParticipant) {
+        return participantService.saveNewParticipant(newParticipant);
     }
 
     @DeleteMapping("/participant/delete/{id}")
