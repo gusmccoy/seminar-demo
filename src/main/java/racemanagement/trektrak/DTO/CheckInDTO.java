@@ -13,6 +13,7 @@ import racemanagement.trektrak.Entity.StationCheckIn;
 public class CheckInDTO {
 
     public CheckInDTO(StationCheckIn checkIn) {
+        id = checkIn.getId();
         eventId = checkIn.getEventId();
         stationNumber = checkIn.getStationId();
         bib = checkIn.getBib();
