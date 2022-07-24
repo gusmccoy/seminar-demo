@@ -52,6 +52,7 @@ public class StationService {
 
     public void updateStation(StationDTO updatedStation) {
         var station = Station.builder()
+            .id(updatedStation.getId())
             .eventId(updatedStation.getEventId())
             .stationName(updatedStation.getName())
             .build();

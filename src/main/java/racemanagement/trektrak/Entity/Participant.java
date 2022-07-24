@@ -17,6 +17,7 @@ import racemanagement.trektrak.DTO.ParticipantDTO;
 public class Participant {
 
     public Participant (ParticipantDTO participant) {
+        id = participant.getId();
         bib = participant.getBib();
         firstName = participant.getFirstName();
         lastName = participant.getLastName();

@@ -20,10 +20,17 @@ import racemanagement.trektrak.DTO.CheckInDTO;
 public class StationCheckIn {
 
     public StationCheckIn(CheckInDTO checkInDTO) {
+        id = checkInDTO.getId();
         bib = checkInDTO.getBib();
         eventId = checkInDTO.getEventId();
-        checkInTime = new Date();
         stationId = checkInDTO.getStationNumber();
+
+        if(checkInDTO.getTimestamp() == null) {
+            checkInTime = new Date();
+        }
+        else {
+            checkInTime = checkInDTO.getTimestamp();
+        }
     }
 
     @Id
