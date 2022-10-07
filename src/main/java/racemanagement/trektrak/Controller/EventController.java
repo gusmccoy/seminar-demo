@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:80", "https://www.trek-trak.gusmccoy.dev"})
 @RestController
@@ -35,6 +36,11 @@ public class EventController {
 		return eventService.getAllEventsByCreateId(userId);
 	}
 
+    @GetMapping("/event/all/{userId}/status")
+	public List<EventDTO> getAllActiveEventsByUserId(@PathVariable int userId, @RequestParam boolean status) {
+		return eventService.getAllEventsByCreateIdAndActiveStatus(userId, status);
+	}
+
     @PostMapping("/event/new")
     public int saveNewEvent(@RequestBody EventDTO newEvent) {
         return eventService.saveNewEvent(newEvent);
@@ -49,5 +55,10 @@ public class EventController {
     @PutMapping("/event/update")
     public void updateEvent(@RequestBody EventDTO updatedEvent) {
         eventService.updateEvent(updatedEvent);
+    }
+
+    @PutMapping("/event/close-out/{id}")
+    public void closeoutEvent(@PathVariable int id) {
+        eventService.closeoutEvent(id);
     }
 }

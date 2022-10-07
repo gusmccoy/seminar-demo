@@ -39,6 +39,19 @@ public class EventService {
         return eventDTOs;
     }
 
+    public List<EventDTO> getAllEventsByCreateIdAndActiveStatus(int userId, boolean status) {
+        var events = eventRepository.findAllByUserIdAndActive(userId, status);
+        var eventDTOs = new ArrayList<EventDTO>();
+
+        if(events.isPresent() && !events.get().isEmpty()) {
+            events.get().forEach(e -> {
+                eventDTOs.add(new EventDTO(e.getId(), e.getUserId(), e.getEventName()));
+            });
+        }
+        return eventDTOs;
+    }
+
+
     public int saveNewEvent(EventDTO newEvent) {
         var event = Event.builder()
             .active(true)
@@ -60,5 +73,13 @@ public class EventService {
             .userId(updatedEvent.getCreateUserId())
             .build();
         eventRepository.save(event);
+    }
+
+    public void closeoutEvent(int id) {
+        var event = eventRepository.findById(id);
+        if(event.isPresent()) {
+            event.get().setActive(false);
+            eventRepository.save(event.get());
+        }
     }
 }

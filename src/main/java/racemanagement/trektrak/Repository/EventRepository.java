@@ -11,4 +11,5 @@ import org.springframework.data.repository.CrudRepository;
 @Repository
 public interface EventRepository extends CrudRepository<Event, Integer> {
    public Optional<List<Event>> findAllByUserId(int userId); 
+   public Optional<List<Event>> findAllByUserIdAndActive(int userId, boolean active);
 }
